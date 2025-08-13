@@ -7,6 +7,7 @@ import SkelLoader from '../../components/SkelLoader';
 const DashHome = () => {
   const { theme } = useSelector((state) => state.theme);
   const [urlSummay, setUrlSummary] = useState({});
+  const [QRSummay, setQRSummary] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -26,6 +27,23 @@ const DashHome = () => {
         setLoading(false);
       }
     };
+    const getQRSummary = async () => {
+        setLoading(true);
+      try {
+        const response = await axios.get("/qrs/summary", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        if (response.status === 200) {
+          setQRSummary(response.data.data);
+        }
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    }
+    getQRSummary()
     getLinkSummary();
   }, []);
 
@@ -62,7 +80,7 @@ const DashHome = () => {
     },
     {
       title: "QR Codes Generated",
-      count: 214,
+      count: QRSummay.TotalQRCount,
       icon: <FaQrcode className="text-2xl text-purple-400" />,
       color: "bg-[#1F2937]",
     },

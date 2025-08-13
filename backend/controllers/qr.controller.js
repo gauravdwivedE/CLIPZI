@@ -109,3 +109,18 @@ module.exports.deleteQR = async (req, res) => {
     })
   }
 }
+
+module.exports.qrSummary = async (req, res) => {
+  try {
+    const createdBy = req.user._id
+    const count = await qrModel.countDocuments({createdBy})
+
+    res.status(200).json({
+      data: {TotalQRCount: count}
+    })
+  } catch (error) {
+    res.status(500).json({
+      error: error
+    })
+  }
+}
