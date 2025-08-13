@@ -23,9 +23,11 @@ const Nav = ({setSidebarOpen}) => {
   return (
     <div className='select-none w-full h-[70px]  rounded-full flex justify-between items-center'>
       <div className='flex gap-5 items-center'>
-        <span  className='text-2xl inline-block md:hidden cursor-pointer '
+       
+       {user &&  <span  className='text-2xl inline-block md:hidden cursor-pointer '
         onClick={() => setSidebarOpen((prev) => !prev)}
-        ><HiOutlineMenu /></span>
+        ><HiOutlineMenu /></span>}
+
         <h1 className=" uppercase text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#EB568E] to-[#144EE3] bg-clip-text text-transparent">
            <NavLink to = "/"> 
             Clipzi

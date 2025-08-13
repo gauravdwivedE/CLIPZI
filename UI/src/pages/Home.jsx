@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import Linkgenerator from "../components/Linkgenerator";
 import CustomeToast from "../components/CustomeToast";
 import ShortnerTable from "../components/ShortnerTable";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import FeatureSection from "../components/FeatureSection";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const {theme}  = useSelector((state) => state.theme)
@@ -13,7 +15,8 @@ const Home = () => {
   const [isWantToGenerate, setIsWantToGenerate] = useState(false)
   const [shortened, setShortened] = useState(null)
   const [isQrzgenerated, setIsQrGenerated] = useState(false)
-  
+  const targetSectionRef = useRef(null);
+
   useEffect(() => {
     setShortened( JSON.parse(localStorage.getItem('myShortened')) ) 
   }, [isQrzgenerated])
@@ -34,8 +37,11 @@ const Home = () => {
         >
           {"Shorten Your Loooong Links :)  "}
         </h1>
-        <div className={`${theme === 'light' ? 'text-gray-800' : 'text-[#C9CED6] ' } font-light mt-3 text-center transition-all duration-1000`}>
-          <p className="text-[12px] md:text-sm">
+        <div 
+        className={`${theme === 'light' ? 'text-gray-800' : 'text-[#C9CED6] ' } font-light mt-3 text-center transition-all duration-1000`}>
+          <p
+          ref={targetSectionRef}
+          className="text-[12px] md:text-sm">
             Clipzi is an efficient and easy-to-use URL shortening service that
             streamlines your
           </p>
@@ -68,7 +74,8 @@ const Home = () => {
         {isWantToGenerate && <Linkgenerator setShortened = {setShortened}/>}
         
         <ShortnerTable data = {shortened} setIsQrGenerated = {setIsQrGenerated}/>
-        
+        <FeatureSection scrollTarget={targetSectionRef}  setIsWantToGenerate = {setIsWantToGenerate}/>
+        <Footer/>
       </div>
 
     </div>

@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import RedirectToOriginalURL from '../pages/RedirectToOriginalURL';
 import NotFound from '../pages/NotFound';
 import ProtectedRoute from '../components/ProtectedRoute';
+import HowToUse from '../components/HowToUse';
 
 const IndexRouting = () => {
   return (
@@ -17,6 +18,7 @@ const IndexRouting = () => {
       <Route path='/login' element = {<Login/>}/>
       <Route path='/register' element = {<Register/>}/>
       <Route path='/:shortCode' element = {<RedirectToOriginalURL/>}/>
+      <Route path='/docs/how-to-use/' element = {<HowToUse/>}/>
     </Routes>
     </>
   )
