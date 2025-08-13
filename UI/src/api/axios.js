@@ -1,11 +1,10 @@
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
 import { logout } from '../redux/user/userSlice'
 import {store} from '../redux/store'
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/api',
+    baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}/api`,
     timeout: 60000
 })
 
