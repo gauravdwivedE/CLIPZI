@@ -11,7 +11,7 @@ import CustomeToast from "../../components/CustomeToast";
 import axios from "../../api/axios";
 import Loader from "../../components/Loader";
 import useImagePopup from "../../hooks/useImagePopup";
-import ActiveLinkPopup from "../../components/activeLinkPopup";
+import ActiveLinkPopup from "../../components/ActiveLinkPopup";
 import InactiveLinkPopup from "../../components/InactiveLinkPopup";
 import ChangePasswordPopup from "../../components/ChangePasswordPopup";
 import { useSelector } from "react-redux";
