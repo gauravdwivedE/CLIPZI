@@ -19,12 +19,12 @@ export default function HowToUse() {
     },
     {
       title: "3. Dashboard Overview",
-      desc: "Your dashboard displays active, inactive, expirable, protected, scheduled, and one-time links — along with QR codes generated eg.",
+      desc: "Your dashboard displays active, inactive, expirable, protected, scheduled, and one-time links — along with QR codes generated.",
     
     },
     {
       title: "4. Create a Short Link",
-      desc: "From the dashboard sidebar → 'Create Short Link', fill in:",
+      desc: "From the dashboard sidebar → 'Create Short Link'",
     },
     {
       title: "5. Short Link Behavior",

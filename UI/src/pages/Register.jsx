@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import CustomeToast from "../components/CustomeToast";
 import Nav from "../components/Nav";
 import axios from "../api/axios";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from '../components/Loader';
 
 const Register = () => {
   const { theme } = useSelector((state) => state.theme);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState()
 
   const onSubmit = async (data) => {
+    setLoading(true)
     try {
       const response = await axios.post("/users/register", data, {});
       const { status, data: result } = response;
@@ -26,7 +24,12 @@ const Register = () => {
         localStorage.setItem("token", result.token);
         navigate("/dashboard");
       }
-    } catch (error) {}
+    } catch (error) {
+      CustomeToast(error.response?.data?.error || error.message)
+    }
+    finally{
+      setLoading(false)
+    }
   };
 
   return (
@@ -126,11 +129,12 @@ const Register = () => {
           </div>
 
           {/* Register button */}
+          
           <button
-            type="submit"
-            className="w-full py-[10px] bg-[#144EE3] rounded-full hover:bg-[#0f3bc7] transition duration-200 text-white"
+            type={`${loading ? 'button': 'submit'}`}
+            className="w-full py-[10px] bg-[#144EE3] flex justify-center items-center rounded-full hover:bg-[#0f3bc7] transition duration-200 text-white"
           >
-            Register Now
+           {!loading ?  'Register Now' : <Loader />} 
           </button>
 
           {/* Divider */}

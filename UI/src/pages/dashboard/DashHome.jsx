@@ -3,6 +3,7 @@ import { FaLink, FaClock,  FaLock, FaCalendarAlt, FaFireAlt, FaQrcode, FaCheckCi
 import { useSelector } from "react-redux";
 import axios from "../../api/axios";
 import SkelLoader from '../../components/SkelLoader';
+import CustomeToast from "../../components/CustomeToast";
 
 const DashHome = () => {
   const { theme } = useSelector((state) => state.theme);
@@ -23,6 +24,7 @@ const DashHome = () => {
           setUrlSummary(response.data.data);
         }
       } catch (error) {
+        CustomeToast(error.response?.data?.error || error.message)
       } finally {
         setLoading(false);
       }

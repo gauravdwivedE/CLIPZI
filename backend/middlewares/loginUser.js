@@ -4,7 +4,6 @@ module.exports.getLoginUser = (req, res, next) => {
     try {
         
         let token = req.headers['authorization']?.split(' ')[1];
-        console.log(token);
         
         if(token == null || token == 'null' || !token) return next()
                     

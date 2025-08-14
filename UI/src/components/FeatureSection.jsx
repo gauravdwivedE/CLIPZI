@@ -187,7 +187,7 @@ export default function FeatureSection({ setIsWantToGenerate ,scrollTarget }) {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center pt-8 space-x-4 md:space-y-0 space-y-4"
+          className="text-center pt-8 md:space-x-5 md:space-y-0 space-y-4"
         >
           <button 
           onClick={()=>{handleScroll(), setIsWantToGenerate(true)} }

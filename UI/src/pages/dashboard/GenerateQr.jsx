@@ -35,7 +35,8 @@ const GenerateQrCode = () => {
         reset();
       }
     } catch (error) {
-      console.log(error);
+      CustomeToast(error.response?.data?.error || error.message)
+      
     } finally {
       setLoading(false);
     }

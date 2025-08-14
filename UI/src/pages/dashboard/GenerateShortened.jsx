@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Nav from '../../components/Nav';
 import { HiLink } from 'react-icons/hi2';
 import Loader from '../../components/Loader';
 import { useForm } from 'react-hook-form';
@@ -38,6 +37,7 @@ const GenerateShortened = () => {
   }
 
   async function onSubmit(data) {
+    setLoading(true)
     try {
       const response = await axios.post("/urls/", data, {
         headers: {
@@ -49,7 +49,10 @@ const GenerateShortened = () => {
         reset();
       }
     } catch (error) {
-      console.log(error);
+      CustomeToast(error.response?.data?.error || error.message)
+     
+    }finally{
+      setLoading(false)
     }
   }
 

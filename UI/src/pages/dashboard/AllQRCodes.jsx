@@ -3,7 +3,6 @@ import { FaCopy } from "react-icons/fa6";
 import { MdDelete, MdOutlineFileDownload } from "react-icons/md";
 import CustomeToast from "../../components/CustomeToast";
 import axios from "../../api/axios";
-import Loader from "../../components/Loader";
 import useImagePopup from "../../hooks/useImagePopup";
 import DeleteQRPopup from "../../components/DeleteQRPopup";
 import { useSelector } from "react-redux";
@@ -43,7 +42,9 @@ const AllQRCodes = () => {
         if (response.status === 200) {
           setMyQRs(response.data.qrs);
         }
-      } catch (error) {}
+      } catch (error) {
+        CustomeToast(error.response?.data?.error || error.message)
+      }
       finally{
         setLoading(false)
       }

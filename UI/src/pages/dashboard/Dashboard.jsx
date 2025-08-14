@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../../components/Nav";
 import Sidebar from "../../components/Sidebar";
-import DashHome from "./DashHome";
-import GenerateShortened from "./GenerateShortened";
-import GenerateQr from "./GenerateQr";
 import DashboardRouting from "../../routes/DashboardRouting";
 import { useSelector } from "react-redux";
 

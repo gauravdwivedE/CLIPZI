@@ -14,8 +14,7 @@ instance.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       // Token expired or invalid
      store.dispatch(logout());
-     console.log("invalid login");
-      localStorage.removeItem('token');
+    localStorage.removeItem('token');
     }
     return Promise.reject(error);
   }

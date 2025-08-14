@@ -50,8 +50,7 @@ const Linkgenerator = ({ setShortened }) => {
         reset();
       }
     } catch (error) {
-      console.log(error);
-      //  CustomeToast(JSON.stringify(error.response.data))
+       CustomeToast(error.response?.data?.error || error.message)
     } finally {
       setLoading(false);
     }

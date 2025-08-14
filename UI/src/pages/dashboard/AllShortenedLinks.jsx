@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaCopy, FaRegEye } from "react-icons/fa6";
 import { HiLink } from "react-icons/hi2";
 import { HiLinkSlash } from "react-icons/hi2";
-import {
-  MdDisabledVisible,
-  MdMoreVert,
-  MdOutlineFileDownload,
-} from "react-icons/md";
+import { MdDisabledVisible, MdMoreVert, MdOutlineFileDownload,} from "react-icons/md";
 import CustomeToast from "../../components/CustomeToast";
 import axios from "../../api/axios";
 import Loader from "../../components/Loader";
@@ -68,6 +64,7 @@ const AllShortenedLinks = () => {
 
         setShortended(response.data.shortened);
       } catch (error) {
+         CustomeToast(error.response?.data?.error || error.message)
       } finally {
         setLoading(false);
       }
