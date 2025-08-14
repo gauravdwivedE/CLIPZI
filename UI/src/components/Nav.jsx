@@ -47,7 +47,7 @@ const Nav = ({setSidebarOpen}) => {
           </span>
           <div 
           onClick={handleLogoutOut}
-          className={`transition-all z-50 absolute w-28 sm:w-40  flex items-center rounded overflow-hidden  ${open?'h-[10] sm:h-12 -bottom-13  border-[1px] p-2 px-4' :'-bottom-0 h-0' } ${theme === 'light' ? 'bg-gray-200' :'bg-[#181E29]'} transform -translate-x-1/2 left-1/2 border-[#353C4A] duration-200`}>
+          className={`transition-all z-50 absolute w-28 sm:w-40  flex items-center rounded overflow-hidden  ${open?' h-10 -bottom-13  border-[1px] p-2 px-4' :'-bottom-0 h-0' } ${theme === 'light' ? 'bg-gray-200' :'bg-[#181E29]'} transform -translate-x-1/2 left-1/2 border-[#353C4A] duration-200`}>
           <span className='flex items-center gap-2 text-[12px] sm:text-sm font-bold'>Logout <LuArrowRightFromLine /></span>
           </div>
         </div>
