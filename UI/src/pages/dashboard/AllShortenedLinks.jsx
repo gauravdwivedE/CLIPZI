@@ -128,6 +128,9 @@ const AllShortenedLinks = () => {
                   <th className="text-left p-4 text-[14px] whitespace-nowrap">
                     One Time
                   </th>
+                   <th className="text-left p-4 text-[14px] whitespace-nowrap">
+                    Clicks
+                  </th>
 
                   <th className="text-left p-4 text-[14px] whitespace-nowrap">
                     Status
@@ -224,6 +227,11 @@ const AllShortenedLinks = () => {
 
                       <td className="text-[13px] py-2 pl-5">
                         {item.oneTime ? "Yes" : "No"}
+                      </td>
+
+
+                      <td className="text-[13px] py-2 pl-5">
+                        {item.clicks }
                       </td>
 
                       <td className="whitespace-nowrap text-[13px] py-2 pl-4 flex  items-center justify-between font-light  w-28">
