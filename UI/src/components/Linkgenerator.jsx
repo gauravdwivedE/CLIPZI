@@ -66,18 +66,23 @@ const Linkgenerator = ({ setShortened }) => {
             <span className={`${theme === 'light' ? 'text-gray-500' : 'text-[#C9CED6]'} transition-all duration-1000`}>
               <HiLink className="text-xl" />
             </span>
-            <input
-              {...register("originalUrl", {
-                required: "Please enter a Link",
-                pattern: {
-                  value: /^(https?:\/\/)(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})(\/\S*)?$/, // basic URL pattern
-                  message: "Link is not valid",
-                },
-              })}
-              type="text"
-              placeholder="Enter the Link here"
-              className={`font-light ${theme === 'light' ? 'placeholder:text-gray-500 text-black' : 'placeholder-[#C9CED6] text-white'} h-full py-2  outline-none w-full transition-all duration-1000 text-[12px] md:text-sm`}
-            />
+           <input
+  {...register("originalUrl", {
+    required: "Please enter a Link",
+    pattern: {
+     value: /^(https?:\/\/)[^\s]+$/,
+      message: "Link is not valid",
+    },
+  })}
+  type="text"
+  placeholder="Enter the Link here"
+  className={`font-light ${
+    theme === 'light'
+      ? 'placeholder:text-gray-500 text-black'
+      : 'placeholder-[#C9CED6] text-white'
+  } h-full py-2 outline-none w-full transition-all duration-1000 text-[12px] md:text-sm`}
+/>
+
           </div>
           {!loading ? (
             <button className="px-6 md:px-8 h-full bg-[#144EE3] cursor-pointer text-white rounded-full text-[12px] md:text-sm shadow-[12px_5px_24px_#144EE380]">

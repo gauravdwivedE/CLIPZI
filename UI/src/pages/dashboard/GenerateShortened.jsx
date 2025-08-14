@@ -82,7 +82,7 @@ const GenerateShortened = () => {
       {...register('originalUrl', {
         required: 'Please enter a Link',
         pattern: {
-          value: /^(https?:\/\/)(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})(\/\S*)?$/, // basic URL pattern
+          value: /^(https?:\/\/)[^\s]+$/,
           message: 'Link is not valid',
         },
       })}
