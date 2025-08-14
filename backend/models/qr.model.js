@@ -25,7 +25,7 @@ const urlSchema = new mongoose.Schema(
 );
 
 function validateQr(data) {
-  const urlRegex = /^(https?:\/\/)(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})(\/\S*)?$/;
+  const urlRegex = /^(https?:\/\/)[^\s]+$/
 
   const schema = z.object({
     createdBy: z
